@@ -6,14 +6,21 @@
 ```rust
 use std::io::{self, BufRead};
 
-fn findZigZagSequence(a: &mut [i32]) {
-    a.sort();
 
+fn findZigZagSequence(a: &mut [i32]) {
+    // 2, 3, 5, 1, 4
+    a.sort();
+    // 1, 2, 3, 4, 5
+    
     let n = a.len();
+    // 2
     let mid = n / 2;
     a.swap(mid, n - 1);
+    // 1, 2, 5, 4, 3
 
+    // 3
     let mut st = mid + 1;
+    // 3
     let mut ed = n - 2;
     while st <= ed {
         a.swap(st, ed);
